@@ -8,25 +8,31 @@ const messageElement = document.getElementById("message");
 const showMessage = (text, status) => {
   messageElement.textContent = text;
   messageElement.classList.add(`bg-${status}`);
+
   setTimeout(() => {
     messageElement.textContent = "";
     messageElement.classList.remove(`bg-${status}`);
   }, 1000);
 };
+
 // createTodo
 const createTodo = (todoId, todoValue) => {
   const todoElement = document.createElement("li");
 
   todoElement.id = todoId;
+
   todoElement.classList.add("li-style");
   todoElement.innerHTML = `<span> ${todoValue} </span>
   <span><button class ="btn" id="deleteButton"><i class ="fa fa-trash"></i></button>
    </span> `;
+
   todoLists.appendChild(todoElement);
 
   const deleteButton = todoElement.querySelector("#deleteButton");
   deleteButton.addEventListener("click", deleteTodo);
 };
+console.log(deleteButton);
+
 // deleteTodo
 const deleteTodo = (event) => {
   const selectedTodo = event.target.parentElement.parentElement.parentElement;
